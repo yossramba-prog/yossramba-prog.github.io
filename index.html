@@ -3,85 +3,690 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuestra Boda</title>
+
+    <title>Yoss & Raúl | Nuestra Boda</title>
 
     <style>
-        body {
+
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap');
+
+        * {
+            box-sizing: border-box;
             margin: 0;
-            font-family: Georgia, serif;
-            background: #f7f3ea;
-            color: #28483d;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #f7f3e9;
+            color: #27483d;
+            font-family: 'Montserrat', sans-serif;
             text-align: center;
         }
 
+        /* =========================
+           PORTADA
+        ========================= */
+
         .hero {
             min-height: 100vh;
+            position: relative;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 30px;
-            box-sizing: border-box;
+            padding: 40px 25px;
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    rgba(247,243,233,0.78),
+                    rgba(247,243,233,0.92)
+                ),
+                url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1600&q=80');
+
+            background-size: cover;
+            background-position: center;
         }
 
-        .leaves {
-            font-size: 45px;
+        .leaf {
+            position: absolute;
+            font-size: 80px;
+            opacity: 0.18;
+        }
+
+        .leaf.one {
+            top: 40px;
+            left: 10px;
+            transform: rotate(-25deg);
+        }
+
+        .leaf.two {
+            bottom: 30px;
+            right: 10px;
+            transform: rotate(25deg);
+        }
+
+        .small-title {
+            font-size: 12px;
+            letter-spacing: 5px;
             margin-bottom: 20px;
+            color: #806b3d;
         }
 
         h1 {
-            font-size: 48px;
-            font-weight: normal;
-            margin: 10px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(65px, 15vw, 120px);
+            font-weight: 400;
+            line-height: 0.9;
+            color: #27483d;
+        }
+
+        .ampersand {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 55px;
+            color: #b2965b;
+            margin: 10px 0;
+        }
+
+        .cover-message {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 27px;
+            font-style: italic;
+            margin-top: 30px;
+            color: #806b3d;
         }
 
         .date {
-            font-size: 20px;
-            letter-spacing: 4px;
-            margin: 20px;
+            margin-top: 25px;
+            letter-spacing: 5px;
+            font-size: 16px;
         }
 
-        .message {
-            font-size: 18px;
-            font-style: italic;
+        .place {
+            margin-top: 10px;
+            font-size: 13px;
+            letter-spacing: 2px;
+        }
+
+        .scroll {
+            position: absolute;
+            bottom: 25px;
+            font-size: 11px;
+            letter-spacing: 3px;
+            color: #806b3d;
+        }
+
+        /* =========================
+           SECCIONES
+        ========================= */
+
+        section {
+            padding: 90px 25px;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 48px;
+            font-weight: 400;
+            margin-bottom: 20px;
+            color: #27483d;
+        }
+
+        .gold-line {
+            width: 70px;
+            height: 1px;
+            background: #b2965b;
+            margin: 20px auto 35px;
+        }
+
+        .text {
+            max-width: 600px;
+            margin: auto;
+            font-size: 15px;
+            line-height: 1.9;
+            color: #52655e;
+        }
+
+        /* =========================
+           CUENTA REGRESIVA
+        ========================= */
+
+        .countdown-section {
+            background: #27483d;
+            color: #f7f3e9;
+        }
+
+        .countdown-section .section-title {
+            color: #f7f3e9;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .time-box {
+            min-width: 75px;
+        }
+
+        .number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 45px;
+            color: #d5bd85;
+        }
+
+        .label {
+            font-size: 10px;
+            letter-spacing: 2px;
+            color: #f7f3e9;
+        }
+
+        /* =========================
+           CEREMONIA
+        ========================= */
+
+        .event-box {
+            max-width: 600px;
+            margin: 30px auto 0;
+            padding: 45px 25px;
+            border: 1px solid #c7b98f;
+            background: rgba(255,255,255,0.35);
+        }
+
+        .event-icon {
+            font-size: 35px;
+            margin-bottom: 20px;
+        }
+
+        .event-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .event-info {
+            line-height: 2;
+            font-size: 14px;
         }
 
         .button {
+            display: inline-block;
             margin-top: 30px;
-            padding: 14px 30px;
-            border: 1px solid #9c8050;
-            color: #28483d;
+            padding: 14px 28px;
+            border: 1px solid #b2965b;
+            color: #27483d;
             text-decoration: none;
+            font-size: 11px;
             letter-spacing: 2px;
+            transition: 0.3s;
         }
+
+        .button:hover {
+            background: #27483d;
+            color: white;
+        }
+
+        /* =========================
+           GALERÍA
+        ========================= */
+
+        .gallery {
+            max-width: 900px;
+            margin: 40px auto 0;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+        }
+
+        /* =========================
+           DRESS CODE
+        ========================= */
+
+        .dress {
+            background: #e8e4d8;
+        }
+
+        .dress-code {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            margin: 25px 0;
+        }
+
+        /* =========================
+           RSVP
+        ========================= */
+
+        .rsvp {
+            background: #27483d;
+            color: white;
+        }
+
+        .rsvp .section-title {
+            color: white;
+        }
+
+        .deadline {
+            color: #d5bd85;
+            font-size: 14px;
+            margin: 25px 0;
+            letter-spacing: 1px;
+        }
+
+        .rsvp .button {
+            color: white;
+            border-color: #d5bd85;
+        }
+
+        .rsvp .button:hover {
+            background: #d5bd85;
+            color: #27483d;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding: 70px 25px;
+            background: #f7f3e9;
+        }
+
+        .footer-names {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 50px;
+            color: #27483d;
+        }
+
+        .heart {
+            color: #b2965b;
+            font-size: 25px;
+            margin: 15px;
+        }
+
+        /* =========================
+           MÓVIL
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery img {
+                height: 320px;
+            }
+
+            section {
+                padding: 75px 20px;
+            }
+
+            .section-title {
+                font-size: 42px;
+            }
+
+        }
+
     </style>
 </head>
 
+
 <body>
 
-    <section class="hero">
 
-        <div class="leaves">
-            🌿
+<!-- =========================
+     PORTADA
+========================= -->
+
+<section class="hero">
+
+    <div class="leaf one">🌿</div>
+    <div class="leaf two">🌿</div>
+
+    <div class="small-title">
+        AQUÍ INICIA NUESTRA HISTORIA
+    </div>
+
+    <h1>Yoss</h1>
+
+    <div class="ampersand">
+        &
+    </div>
+
+    <h1>Raúl</h1>
+
+    <div class="cover-message">
+        Con mucha ilusión queremos compartir<br>
+        este día contigo.
+    </div>
+
+    <div class="date">
+        07 · 01 · 27
+    </div>
+
+    <div class="place">
+        SAN ROQUE DE BARVA
+    </div>
+
+    <div class="scroll">
+        ↓ DESLIZA ↓
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CUENTA REGRESIVA
+========================= -->
+
+<section class="countdown-section">
+
+    <h2 class="section-title">
+        La cuenta regresiva
+    </h2>
+
+    <div class="gold-line"></div>
+
+    <p class="text" style="color:#e8e4d8;">
+        Cada vez falta menos para compartir<br>
+        este momento tan especial.
+    </p>
+
+    <div class="countdown">
+
+        <div class="time-box">
+            <div class="number" id="days">00</div>
+            <div class="label">DÍAS</div>
         </div>
 
-        <p>CON MUCHO AMOR</p>
-
-        <h1>Yoselin &amp; ______</h1>
-
-        <div class="date">
-            14 · 02 · 2027
+        <div class="time-box">
+            <div class="number" id="hours">00</div>
+            <div class="label">HORAS</div>
         </div>
 
-        <p class="message">
-            Nos encantaría compartir este día tan especial contigo.
-        </p>
+        <div class="time-box">
+            <div class="number" id="minutes">00</div>
+            <div class="label">MINUTOS</div>
+        </div>
 
-        <a href="#invitacion" class="button">
-            NUESTRA HISTORIA
+        <div class="time-box">
+            <div class="number" id="seconds">00</div>
+            <div class="label">SEGUNDOS</div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CEREMONIA
+========================= -->
+
+<section>
+
+    <h2 class="section-title">
+        Ceremonia
+    </h2>
+
+    <div class="gold-line"></div>
+
+    <div class="event-box">
+
+        <div class="event-icon">
+            ♡
+        </div>
+
+        <div class="event-name">
+            Nuestra boda
+        </div>
+
+        <div class="event-info">
+
+            <strong>07 de enero de 2027</strong><br>
+
+            3:00 p. m.<br><br>
+
+            Salón Los Laureles<br>
+
+            San Roque de Barva
+
+        </div>
+
+        <a
+            class="button"
+            href="https://www.google.com/maps/search/?api=1&query=Salon+Los+Laureles+San+Roque+de+Barva"
+            target="_blank">
+
+            VER UBICACIÓN
+
         </a>
 
-    </section>
+    </div>
 
-</body>
-</html>
+</section>
+
+
+<!-- =========================
+     GALERÍA
+========================= -->
+
+<section>
+
+    <h2 class="section-title">
+        Momentos que nos recuerdan
+    </h2>
+
+    <div class="gold-line"></div>
+
+    <p class="text">
+        Pronto compartiremos aquí algunas de
+        nuestras fotografías favoritas.
+    </p>
+
+    <div class="gallery">
+
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=80">
+
+        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=900&q=80">
+
+        <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=80">
+
+        <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?auto=format&fit=crop&w=900&q=80">
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     DRESS CODE
+========================= -->
+
+<section class="dress">
+
+    <h2 class="section-title">
+        Dress Code
+    </h2>
+
+    <div class="gold-line"></div>
+
+    <div class="dress-code">
+        Elegante
+    </div>
+
+    <p class="text">
+        Queremos que te sientas cómodo/a y especial
+        para celebrar este día con nosotros.
+    </p>
+
+</section>
+
+
+<!-- =========================
+     REGALOS
+========================= -->
+
+<section>
+
+    <h2 class="section-title">
+        Un detalle para nosotros
+    </h2>
+
+    <div class="gold-line"></div>
+
+    <p class="text">
+
+        Tu presencia es nuestro mejor regalo.
+        <br><br>
+
+        Si deseas tener un detalle con nosotros,
+        próximamente compartiremos aquí
+        la información.
+
+    </p>
+
+</section>
+
+
+<!-- =========================
+     RSVP
+========================= -->
+
+<section class="rsvp">
+
+    <h2 class="section-title">
+        ¿Nos acompañas?
+    </h2>
+
+    <div class="gold-line"></div>
+
+    <p class="text" style="color:#e8e4d8;">
+
+        Nos encantaría contar contigo
+        en este día tan especial.
+
+    </p>
+
+    <div class="deadline">
+
+        Por favor confirma tu asistencia
+        antes del <strong>30 de octubre de 2026</strong>.
+
+    </div>
+
+
+    <!--
+    IMPORTANTE:
+
+    AQUÍ COLOCAREMOS EL LINK DE TU GOOGLE FORM.
+
+    Por ahora el botón no lleva a ningún formulario.
+    -->
+
+    <a
+        class="button"
+        href="#"
+        onclick="alert('Próximamente podrás confirmar tu asistencia aquí.'); return false;">
+
+        CONFIRMAR ASISTENCIA
+
+    </a>
+
+</section>
+
+
+<!-- =========================
+     CIERRE
+========================= -->
+
+<footer>
+
+    <div class="footer-names">
+        Yoss & Raúl
+    </div>
+
+    <div class="heart">
+        ♡
+    </div>
+
+    <p>
+        07 · 01 · 27
+    </p>
+
+    <p style="margin-top:20px; font-size:13px; color:#6b776f;">
+        Gracias por ser parte de este momento.
+    </p>
+
+</footer>
+
+
+<!-- =========================
+     CUENTA REGRESIVA
+========================= -->
+
+<script>
+
+    const weddingDate = new Date("January 7, 2027 15:00:00").getTime();
+
+    function updateCountdown() {
+
+        const now = new Date().getTime();
+
+        const difference = weddingDate - now;
+
+        if (difference <= 0) {
+
+            document.getElementById("days").innerHTML = "♡";
+            document.getElementById("hours").innerHTML = "♡";
+            document.getElementById("minutes").innerHTML = "♡";
+            document.getElementById("seconds").innerHTML = "♡";
+
+            return;
+        }
+
+        const days = Math.floor(
+            difference / (1000 * 60 * 60 * 24)
+        );
+
+        const hours = Math.floor(
+            (difference % (1000 * 60 * 60 * 24))
+            / (1000 * 60 * 60)
+        );
+
+        const minutes = Math.floor(
+            (difference % (1000 * 60 * 60))
+            / (1000 * 60)
+        );
+
+        const seconds = Math.floor(
+            (difference % (1000 * 60))
+            / 1000
+        );
+
+        document.getElementById("days").innerHTML =
+            String(days).padStart(2, "0");
+
+        document.getElementById("hours").innerHTML =
+            String(hours).padStart(2, "0");
+
+        document.getElementById("minutes").innerHTML =
+            String(minutes).padStart(2, "0");
+
+        document.getElementById("seconds").innerHTML =
+            String(seconds).padStart(2, "0");
+    }
+

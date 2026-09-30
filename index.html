@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Raúl & Yoss | Nuestra Boda</title>
+    <title>Rau & Yoss | Nuestra Boda</title>
 
     <style>
 
@@ -360,7 +360,7 @@
         AQUÍ INICIA NUESTRA HISTORIA
     </div>
 
-    <h1>Raúl</h1>
+    <h1>Rau</h1>
 
     <div class="ampersand">
         &
@@ -616,7 +616,7 @@
 <footer>
 
     <div class="footer-names">
-        Raúl & Yoss
+        Rau & Yoss
     </div>
 
     <div class="heart">
@@ -642,51 +642,49 @@
 
     const weddingDate = new Date("2027-01-07T21:00:00Z").getTime();
 
-    function updateCountdown() {
+function updateCountdown() {
+    const now = new Date().getTime();
+    const difference = weddingDate - now;
 
-        const now = new Date().getTime();
-
-        const difference = weddingDate - now;
-
-        if (difference <= 0) {
-
-            document.getElementById("days").innerHTML = "♡";
-            document.getElementById("hours").innerHTML = "♡";
-            document.getElementById("minutes").innerHTML = "♡";
-            document.getElementById("seconds").innerHTML = "♡";
-
-            return;
-        }
-
-        const days = Math.floor(
-            difference / (1000 * 60 * 60 * 24)
-        );
-
-        const hours = Math.floor(
-            (difference % (1000 * 60 * 60 * 24))
-            / (1000 * 60 * 60)
-        );
-
-        const minutes = Math.floor(
-            (difference % (1000 * 60 * 60))
-            / (1000 * 60)
-        );
-
-        const seconds = Math.floor(
-            (difference % (1000 * 60))
-            / 1000
-        );
-
-        document.getElementById("days").innerHTML =
-            String(days).padStart(2, "0");
-
-        document.getElementById("hours").innerHTML =
-            String(hours).padStart(2, "0");
-
-        document.getElementById("minutes").innerHTML =
-            String(minutes).padStart(2, "0");
-
-        document.getElementById("seconds").innerHTML =
-            String(seconds).padStart(2, "0");
+    if (difference <= 0) {
+        document.getElementById("days").innerHTML = "♡";
+        document.getElementById("hours").innerHTML = "♡";
+        document.getElementById("minutes").innerHTML = "♡";
+        document.getElementById("seconds").innerHTML = "♡";
+        return;
     }
 
+    const days = Math.floor(
+        difference / (1000 * 60 * 60 * 24)
+    );
+
+    const hours = Math.floor(
+        (difference % (1000 * 60 * 60 * 24))
+        / (1000 * 60 * 60)
+    );
+
+    const minutes = Math.floor(
+        (difference % (1000 * 60 * 60))
+        / (1000 * 60)
+    );
+
+    const seconds = Math.floor(
+        (difference % (1000 * 60))
+        / 1000
+    );
+
+    document.getElementById("days").innerHTML =
+        String(days).padStart(2, "0");
+
+    document.getElementById("hours").innerHTML =
+        String(hours).padStart(2, "0");
+
+    document.getElementById("minutes").innerHTML =
+        String(minutes).padStart(2, "0");
+
+    document.getElementById("seconds").innerHTML =
+        String(seconds).padStart(2, "0");
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);

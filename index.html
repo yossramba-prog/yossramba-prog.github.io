@@ -586,16 +586,7 @@ recibiremos sobres o SINPE con mucho cariño.
     <span class="footer-ampersand">&amp;</span>
     <span>Yoss</span>
 </div>
-   .footer-names {
-    font-family: 'Allura', cursive;
-    font-size: 45px;
-    font-weight: 400;
-}
-
-.footer-ampersand {
-    margin: 0 8px;
-} 
-
+   
     <div class="heart">
         ♡
     </div>
@@ -615,45 +606,63 @@ recibiremos sobres o SINPE con mucho cariño.
      CUENTA REGRESIVA
 ========================= -->
 
+
 <script>
 
-    const weddingDate = new Date("January 7, 2027 15:00:00").getTime();
+const weddingDate = new Date("January 7, 2027 15:00:00").getTime();
 
-    function updateCountdown() {
+function updateCountdown() {
 
-        const now = new Date().getTime();
+    const now = new Date().getTime();
+    const difference = weddingDate - now;
 
-        const difference = weddingDate - now;
+    if (difference <= 0) {
 
-        if (difference <= 0) {
+        document.getElementById("days").innerHTML = "♡";
+        document.getElementById("hours").innerHTML = "♡";
+        document.getElementById("minutes").innerHTML = "♡";
+        document.getElementById("seconds").innerHTML = "♡";
 
-            document.getElementById("days").innerHTML = "♡";
-            document.getElementById("hours").innerHTML = "♡";
-            document.getElementById("minutes").innerHTML = "♡";
-            document.getElementById("seconds").innerHTML = "♡";
+        return;
+    }
 
-            return;
-        }
+    const days = Math.floor(
+        difference / (1000 * 60 * 60 * 24)
+    );
 
-        const days = Math.floor(
-            difference / (1000 * 60 * 60 * 24)
-        );
+    const hours = Math.floor(
+        (difference % (1000 * 60 * 60 * 24))
+        / (1000 * 60 * 60)
+    );
 
-        const hours = Math.floor(
-            (difference % (1000 * 60 * 60 * 24))
-            / (1000 * 60 * 60)
-        );
+    const minutes = Math.floor(
+        (difference % (1000 * 60 * 60))
+        / (1000 * 60)
+    );
 
-        const minutes = Math.floor(
-            (difference % (1000 * 60 * 60))
-            / (1000 * 60)
-        );
+    const seconds = Math.floor(
+        (difference % (1000 * 60))
+        / 1000
+    );
 
-        const seconds = Math.floor(
-            (difference % (1000 * 60))
-           
+    document.getElementById("days").innerHTML =
+        String(days).padStart(2, "0");
+
+    document.getElementById("hours").innerHTML =
+        String(hours).padStart(2, "0");
+
+    document.getElementById("minutes").innerHTML =
+        String(minutes).padStart(2, "0");
+
+    document.getElementById("seconds").innerHTML =
+        String(seconds).padStart(2, "0");
+}
+
+updateCountdown();
+
+setInterval(updateCountdown, 1000);
+
 </script>
-
 
 </body>
 </html>

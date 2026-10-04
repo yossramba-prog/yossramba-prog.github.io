@@ -487,67 +487,130 @@
    HOJAS DE LAS ESQUINAS
 ========================= */
 
-.leaf-decoration {
+/* =========================
+   RAMITAS BOTÁNICAS
+========================= */
+
+.botanical {
+    position: absolute;
+    z-index: 5;
+
+    width: 105px;
+    height: 105px;
+
+    pointer-events: none;
+
+    color: #68755b;
+}
+
+
+/* Ramita principal */
+
+.botanical::before {
+    content: "";
 
     position: absolute;
 
-    z-index: 5;
+    width: 95px;
+    height: 1px;
 
-    color: #68755b;
+    background: #68755b;
+
+    opacity: 0.75;
+}
+
+
+/* Hojas */
+
+.botanical span {
+    position: absolute;
 
     font-family: Georgia, serif;
 
-    font-size: 48px;
+    font-size: 25px;
 
     line-height: 1;
 
-    pointer-events: none;
+    color: #68755b;
+
+    opacity: 0.9;
 }
 
 
-/* Arriba izquierda */
+/* =========================
+   ESQUINA SUPERIOR IZQUIERDA
+========================= */
 
-.leaf-top-left {
-
-    top: -10px;
+.botanical-top-left {
+    top: -5px;
     left: -8px;
 
-    transform: rotate(-45deg);
+    transform: rotate(-20deg);
+}
+
+.botanical-top-left::before {
+    top: 48px;
+    left: 5px;
+
+    transform: rotate(-38deg);
+}
+
+.botanical-top-left span:nth-child(1) {
+    top: 28px;
+    left: 25px;
+
+    transform: rotate(-35deg);
+}
+
+.botanical-top-left span:nth-child(2) {
+    top: 12px;
+    left: 43px;
+
+    transform: rotate(-5deg);
+}
+
+.botanical-top-left span:nth-child(3) {
+    top: 45px;
+    left: 55px;
+
+    transform: rotate(25deg);
 }
 
 
-/* Arriba derecha */
+/* =========================
+   ESQUINA SUPERIOR DERECHA
+========================= */
 
-.leaf-top-right {
-
-    top: -10px;
+.botanical-top-right {
+    top: -5px;
     right: -8px;
 
-    transform: rotate(45deg) scaleX(-1);
+    transform: scaleX(-1) rotate(-20deg);
 }
 
 
-/* Abajo izquierda */
+/* =========================
+   ESQUINA INFERIOR IZQUIERDA
+========================= */
 
-.leaf-bottom-left {
-
-    bottom: -10px;
+.botanical-bottom-left {
+    bottom: -5px;
     left: -8px;
 
-    transform: rotate(-135deg);
+    transform: scaleY(-1) rotate(-20deg);
 }
 
 
-/* Abajo derecha */
+/* =========================
+   ESQUINA INFERIOR DERECHA
+========================= */
 
-.leaf-bottom-right {
-
-    bottom: -10px;
+.botanical-bottom-right {
+    bottom: -5px;
     right: -8px;
 
-    transform: rotate(135deg) scaleX(-1);
+    transform: scale(-1) rotate(-20deg);
 }
-
 
 /* =========================
    RESPONSIVE - CELULAR
@@ -813,10 +876,29 @@
     <div class="ceremony-card">
 
         <!-- Hojas decorativas -->
-        <div class="leaf-decoration leaf-top-left">❧</div>
-        <div class="leaf-decoration leaf-top-right">❧</div>
-        <div class="leaf-decoration leaf-bottom-left">❧</div>
-        <div class="leaf-decoration leaf-bottom-right">❧</div>
+        <div class="botanical botanical-top-left">
+    <span>❧</span>
+    <span>❧</span>
+    <span>❧</span>
+</div>
+
+<div class="botanical botanical-top-right">
+    <span>❧</span>
+    <span>❧</span>
+    <span>❧</span>
+</div>
+
+<div class="botanical botanical-bottom-left">
+    <span>❧</span>
+    <span>❧</span>
+    <span>❧</span>
+</div>
+
+<div class="botanical botanical-bottom-right">
+    <span>❧</span>
+    <span>❧</span>
+    <span>❧</span>
+</div>
 
 
         <div class="ceremony-card-content">

@@ -488,33 +488,33 @@
 ========================= */
 
 /* =========================
-   RAMITAS BOTÁNICAS
+   HOJAS BOTÁNICAS
 ========================= */
 
-.botanical {
+.botanical-corner {
     position: absolute;
-    z-index: 5;
 
-    width: 105px;
-    height: 105px;
+    width: 145px;
+    height: 145px;
+
+    z-index: 5;
 
     pointer-events: none;
 
-    color: #68755b;
+    overflow: visible;
 }
 
 
-/* Ramita principal */
+/* Rama */
 
-.botanical::before {
-    content: "";
+.botanical-corner .stem {
+    fill: none;
 
-    position: absolute;
+    stroke: #7d896f;
 
-    width: 95px;
-    height: 1px;
+    stroke-width: 1.5;
 
-    background: #68755b;
+    stroke-linecap: round;
 
     opacity: 0.75;
 }
@@ -522,96 +522,68 @@
 
 /* Hojas */
 
-.botanical span {
-    position: absolute;
+.botanical-corner .leaf {
+    fill: #82977f;
 
-    font-family: Georgia, serif;
+    opacity: 0.82;
+}
 
-    font-size: 25px;
 
-    line-height: 1;
+/* Variaciones de verde */
 
-    color: #68755b;
+.botanical-corner .leaf-1 {
+    fill: #789078;
+}
 
-    opacity: 0.9;
+.botanical-corner .leaf-2 {
+    fill: #91a895;
+}
+
+.botanical-corner .leaf-3 {
+    fill: #718a73;
+}
+
+.botanical-corner .leaf-4 {
+    fill: #9aafa0;
+}
+
+.botanical-corner .leaf-5 {
+    fill: #819781;
 }
 
 
 /* =========================
-   ESQUINA SUPERIOR IZQUIERDA
+   POSICIONES
 ========================= */
 
-.botanical-top-left {
-    top: -5px;
-    left: -8px;
-
-    transform: rotate(-20deg);
-}
-
-.botanical-top-left::before {
-    top: 48px;
-    left: 5px;
-
-    transform: rotate(-38deg);
-}
-
-.botanical-top-left span:nth-child(1) {
-    top: 28px;
-    left: 25px;
-
-    transform: rotate(-35deg);
-}
-
-.botanical-top-left span:nth-child(2) {
-    top: 12px;
-    left: 43px;
-
-    transform: rotate(-5deg);
-}
-
-.botanical-top-left span:nth-child(3) {
-    top: 45px;
-    left: 55px;
-
-    transform: rotate(25deg);
+.botanical-tl {
+    top: -18px;
+    left: -18px;
 }
 
 
-/* =========================
-   ESQUINA SUPERIOR DERECHA
-========================= */
+.botanical-tr {
+    top: -18px;
+    right: -18px;
 
-.botanical-top-right {
-    top: -5px;
-    right: -8px;
-
-    transform: scaleX(-1) rotate(-20deg);
+    transform: scaleX(-1);
 }
 
 
-/* =========================
-   ESQUINA INFERIOR IZQUIERDA
-========================= */
+.botanical-bl {
+    bottom: -18px;
+    left: -18px;
 
-.botanical-bottom-left {
-    bottom: -5px;
-    left: -8px;
-
-    transform: scaleY(-1) rotate(-20deg);
+    transform: scaleY(-1);
 }
 
 
-/* =========================
-   ESQUINA INFERIOR DERECHA
-========================= */
+.botanical-br {
+    bottom: -18px;
+    right: -18px;
 
-.botanical-bottom-right {
-    bottom: -5px;
-    right: -8px;
-
-    transform: scale(-1) rotate(-20deg);
+    transform: scale(-1);
 }
-
 /* =========================
    RESPONSIVE - CELULAR
 ========================= */
@@ -619,85 +591,74 @@
 @media (max-width: 750px) {
 
     .ceremony-section {
-
         padding: 65px 15px 75px;
-
     }
-
 
     .ceremony-heading {
-
         font-size: 45px;
-
     }
-
 
     .ceremony-gold-line {
-
         margin-bottom: 30px;
-
     }
-
 
     .ceremony-card {
-
         padding: 55px 25px;
-
         min-height: auto;
-
     }
-
 
     .ceremony-card-content {
-
         grid-template-columns: 1fr;
-
         gap: 45px;
-
         min-height: auto;
-
     }
-
 
     .ceremony-details {
-
         padding: 10px;
-
     }
-
 
     .ceremony-name {
-
         font-size: 52px;
-
     }
-
 
     .ceremony-date {
-
         font-size: 25px;
-
     }
-
 
     .ceremony-photo-frame {
-
         width: 280px;
-
         height: 370px;
-
     }
 
 
-    .leaf-decoration {
+    /* Hojas botánicas en celular */
 
-        font-size: 40px;
+    .botanical-corner {
+        width: 115px;
+        height: 115px;
+    }
 
+    .botanical-tl {
+        top: -14px;
+        left: -14px;
+    }
+
+    .botanical-tr {
+        top: -14px;
+        right: -14px;
+    }
+
+    .botanical-bl {
+        bottom: -14px;
+        left: -14px;
+    }
+
+    .botanical-br {
+        bottom: -14px;
+        right: -14px;
     }
 
 }
-
-
         /* =========================
            RSVP
         ========================= */
@@ -876,29 +837,148 @@
     <div class="ceremony-card">
 
         <!-- Hojas decorativas -->
-        <div class="botanical botanical-top-left">
-    <span>❧</span>
-    <span>❧</span>
-    <span>❧</span>
-</div>
+      <!-- =========================
+     HOJAS BOTÁNICAS
+========================= -->
 
-<div class="botanical botanical-top-right">
-    <span>❧</span>
-    <span>❧</span>
-    <span>❧</span>
-</div>
+<svg class="botanical-corner botanical-tl"
+     viewBox="0 0 180 180"
+     aria-hidden="true">
 
-<div class="botanical botanical-bottom-left">
-    <span>❧</span>
-    <span>❧</span>
-    <span>❧</span>
-</div>
+    <path class="stem"
+          d="M15 165 C35 125, 55 85, 105 20" />
 
-<div class="botanical botanical-bottom-right">
-    <span>❧</span>
-    <span>❧</span>
-    <span>❧</span>
-</div>
+    <ellipse class="leaf leaf-1"
+             cx="42" cy="126"
+             rx="18" ry="34"
+             transform="rotate(-48 42 126)" />
+
+    <ellipse class="leaf leaf-2"
+             cx="62" cy="104"
+             rx="17" ry="31"
+             transform="rotate(48 62 104)" />
+
+    <ellipse class="leaf leaf-3"
+             cx="69" cy="84"
+             rx="18" ry="34"
+             transform="rotate(-42 69 84)" />
+
+    <ellipse class="leaf leaf-4"
+             cx="91" cy="60"
+             rx="17" ry="30"
+             transform="rotate(48 91 60)" />
+
+    <ellipse class="leaf leaf-5"
+             cx="98" cy="39"
+             rx="16" ry="28"
+             transform="rotate(-35 98 39)" />
+
+</svg>
+
+
+<svg class="botanical-corner botanical-tr"
+     viewBox="0 0 180 180"
+     aria-hidden="true">
+
+    <path class="stem"
+          d="M15 165 C35 125, 55 85, 105 20" />
+
+    <ellipse class="leaf leaf-1"
+             cx="42" cy="126"
+             rx="18" ry="34"
+             transform="rotate(-48 42 126)" />
+
+    <ellipse class="leaf leaf-2"
+             cx="62" cy="104"
+             rx="17" ry="31"
+             transform="rotate(48 62 104)" />
+
+    <ellipse class="leaf leaf-3"
+             cx="69" cy="84"
+             rx="18" ry="34"
+             transform="rotate(-42 69 84)" />
+
+    <ellipse class="leaf leaf-4"
+             cx="91" cy="60"
+             rx="17" ry="30"
+             transform="rotate(48 91 60)" />
+
+    <ellipse class="leaf leaf-5"
+             cx="98" cy="39"
+             rx="16" ry="28"
+             transform="rotate(-35 98 39)" />
+
+</svg>
+
+
+<svg class="botanical-corner botanical-bl"
+     viewBox="0 0 180 180"
+     aria-hidden="true">
+
+    <path class="stem"
+          d="M15 165 C35 125, 55 85, 105 20" />
+
+    <ellipse class="leaf leaf-1"
+             cx="42" cy="126"
+             rx="18" ry="34"
+             transform="rotate(-48 42 126)" />
+
+    <ellipse class="leaf leaf-2"
+             cx="62" cy="104"
+             rx="17" ry="31"
+             transform="rotate(48 62 104)" />
+
+    <ellipse class="leaf leaf-3"
+             cx="69" cy="84"
+             rx="18" ry="34"
+             transform="rotate(-42 69 84)" />
+
+    <ellipse class="leaf leaf-4"
+             cx="91" cy="60"
+             rx="17" ry="30"
+             transform="rotate(48 91 60)" />
+
+    <ellipse class="leaf leaf-5"
+             cx="98" cy="39"
+             rx="16" ry="28"
+             transform="rotate(-35 98 39)" />
+
+</svg>
+
+
+<svg class="botanical-corner botanical-br"
+     viewBox="0 0 180 180"
+     aria-hidden="true">
+
+    <path class="stem"
+          d="M15 165 C35 125, 55 85, 105 20" />
+
+    <ellipse class="leaf leaf-1"
+             cx="42" cy="126"
+             rx="18" ry="34"
+             transform="rotate(-48 42 126)" />
+
+    <ellipse class="leaf leaf-2"
+             cx="62" cy="104"
+             rx="17" ry="31"
+             transform="rotate(48 62 104)" />
+
+    <ellipse class="leaf leaf-3"
+             cx="69" cy="84"
+             rx="18" ry="34"
+             transform="rotate(-42 69 84)" />
+
+    <ellipse class="leaf leaf-4"
+             cx="91" cy="60"
+             rx="17" ry="30"
+             transform="rotate(48 91 60)" />
+
+    <ellipse class="leaf leaf-5"
+             cx="98" cy="39"
+             rx="16" ry="28"
+             transform="rotate(-35 98 39)" />
+
+</svg>
 
 
         <div class="ceremony-card-content">

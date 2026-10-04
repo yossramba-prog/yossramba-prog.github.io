@@ -188,159 +188,466 @@
             color: #f7f3e9;
         }
 
-      /* =========================
+/* =========================
    CEREMONIA
 ========================= */
 
 .ceremony-section {
-    padding: 90px 30px;
+    padding: 80px 25px 90px;
     background: #f5f0e6;
-}
-
-.ceremony-content {
-    max-width: 1050px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 0.9fr;
-    align-items: center;
-    gap: 70px;
-}
-
-/* Información */
-
-.ceremony-info {
     text-align: center;
-    padding: 20px;
-}
-
-.ceremony-small-title {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 12px;
-    letter-spacing: 4px;
-    color: #9c8450;
-    margin-bottom: 15px;
-}
-
-.ceremony-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 58px;
-    font-weight: 400;
-    color: #3f493c;
-    margin: 0 0 18px;
-}
-
-.ceremony-info .gold-line {
-    width: 55px;
-    height: 1px;
-    background: #c5a45d;
-    margin: 0 auto 30px;
-}
-
-.ceremony-details {
-    font-family: 'Cormorant Garamond', serif;
-    color: #4a4a43;
-}
-
-.ceremony-date {
-    font-size: 27px;
-    letter-spacing: 2px;
-    margin-bottom: 10px;
-}
-
-.ceremony-time {
-    font-size: 21px;
-    margin-bottom: 25px;
-}
-
-.ceremony-location {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 13px;
-    line-height: 1.8;
-    letter-spacing: 1px;
-    color: #66645c;
-}
-
-/* Botón */
-
-.ceremony-button {
-    display: inline-block;
-    margin-top: 30px;
-    padding: 13px 28px;
-    border: 1px solid #b49a60;
-    color: #806b3f;
-    text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 11px;
-    letter-spacing: 2px;
-    transition: all 0.3s ease;
-}
-
-.ceremony-button:hover {
-    background: #b49a60;
-    color: #fff;
 }
 
 
 /* =========================
-   FOTO DE CEREMONIA
+   TÍTULO FUERA DEL MARCO
 ========================= */
 
-.ceremony-photo {
-    display: flex;
-    justify-content: center;
+.ceremony-heading {
+    margin: 0 0 12px;
+
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px;
+    font-weight: 400;
+
+    color: #3f493c;
+
+    letter-spacing: 1px;
 }
 
-.photo-frame {
+.ceremony-gold-line {
+    width: 55px;
+    height: 1px;
+
+    margin: 0 auto 42px;
+
+    background: #c5a45d;
+}
+
+
+/* =========================
+   MARCO EXTERIOR
+========================= */
+
+.ceremony-card {
+    position: relative;
+
     width: 100%;
-    max-width: 390px;
-    height: 500px;
-    overflow: hidden;
+    max-width: 1000px;
+
+    min-height: 570px;
+
+    margin: 0 auto;
+
+    padding: 55px;
+
+    background: #f8f4eb;
 
     border: 1px solid #c5a45d;
 
-    /* forma elegante tipo arco */
-    border-radius: 200px 200px 0 0;
-
-    padding: 8px;
+    box-sizing: border-box;
 }
 
-.photo-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
 
-    border-radius: 190px 190px 0 0;
+/* Segundo borde interior */
 
-    display: block;
+.ceremony-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+
+    border: 1px solid rgba(197, 164, 93, 0.45);
+
+    pointer-events: none;
 }
 
 
 /* =========================
-   MÓVIL
+   CONTENIDO INTERNO
 ========================= */
 
-@media (max-width: 700px) {
+.ceremony-card-content {
+
+    position: relative;
+    z-index: 2;
+
+    min-height: 455px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 0.85fr;
+
+    align-items: center;
+
+    gap: 65px;
+}
+
+
+/* =========================
+   INFORMACIÓN
+========================= */
+
+.ceremony-details {
+    text-align: center;
+
+    padding: 20px;
+}
+
+
+/* Corazón */
+
+.ceremony-heart {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 31px;
+
+    color: #b69a5b;
+
+    line-height: 1;
+
+    margin-bottom: 10px;
+}
+
+
+/* Nuestra boda */
+
+.ceremony-name {
+    font-family: 'Allura', cursive;
+
+    font-size: 58px;
+
+    font-weight: 400;
+
+    color: #3f493c;
+
+    line-height: 1.1;
+
+    margin-bottom: 15px;
+}
+
+
+/* Línea pequeña dorada */
+
+.ceremony-small-line {
+    width: 40px;
+    height: 1px;
+
+    background: #c5a45d;
+
+    margin: 0 auto 25px;
+}
+
+
+/* Fecha */
+
+.ceremony-date {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 27px;
+
+    color: #3f493c;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 5px;
+}
+
+
+/* Hora */
+
+.ceremony-time {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 21px;
+
+    color: #5d5d55;
+
+    margin-bottom: 28px;
+}
+
+
+/* Lugar */
+
+.ceremony-location {
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 12px;
+
+    line-height: 1.9;
+
+    letter-spacing: 0.7px;
+
+    color: #68675f;
+}
+
+.ceremony-location strong {
+    font-weight: 500;
+
+    color: #4d5148;
+}
+
+
+/* Botón */
+
+.ceremony-location-button {
+
+    display: inline-block;
+
+    margin-top: 28px;
+
+    padding: 12px 27px;
+
+    border: 1px solid #b69a5b;
+
+    color: #806b3f;
+
+    text-decoration: none;
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    transition: all 0.3s ease;
+}
+
+.ceremony-location-button:hover {
+
+    background: #b69a5b;
+
+    color: #ffffff;
+}
+
+
+/* =========================
+   FOTO
+========================= */
+
+.ceremony-photo-area {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+
+/* Marco propio de la foto */
+
+.ceremony-photo-frame {
+
+    position: relative;
+
+    width: 330px;
+
+    height: 425px;
+
+    padding: 8px;
+
+    background: #f8f4eb;
+
+    border: 1px solid #c5a45d;
+
+    box-sizing: border-box;
+
+    /* Arco superior */
+
+    border-radius: 180px 180px 0 0;
+}
+
+
+/* Borde interior de la foto */
+
+.ceremony-photo-frame::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 7px;
+    left: 7px;
+    right: 7px;
+    bottom: 7px;
+
+    border: 1px solid rgba(197, 164, 93, 0.45);
+
+    border-radius: 170px 170px 0 0;
+
+    pointer-events: none;
+
+    z-index: 2;
+}
+
+
+/* Imagen */
+
+.ceremony-photo-frame img {
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    border-radius: 165px 165px 0 0;
+}
+
+
+/* =========================
+   HOJAS DE LAS ESQUINAS
+========================= */
+
+.leaf-decoration {
+
+    position: absolute;
+
+    z-index: 5;
+
+    color: #68755b;
+
+    font-family: Georgia, serif;
+
+    font-size: 48px;
+
+    line-height: 1;
+
+    pointer-events: none;
+}
+
+
+/* Arriba izquierda */
+
+.leaf-top-left {
+
+    top: -10px;
+    left: -8px;
+
+    transform: rotate(-45deg);
+}
+
+
+/* Arriba derecha */
+
+.leaf-top-right {
+
+    top: -10px;
+    right: -8px;
+
+    transform: rotate(45deg) scaleX(-1);
+}
+
+
+/* Abajo izquierda */
+
+.leaf-bottom-left {
+
+    bottom: -10px;
+    left: -8px;
+
+    transform: rotate(-135deg);
+}
+
+
+/* Abajo derecha */
+
+.leaf-bottom-right {
+
+    bottom: -10px;
+    right: -8px;
+
+    transform: rotate(135deg) scaleX(-1);
+}
+
+
+/* =========================
+   RESPONSIVE - CELULAR
+========================= */
+
+@media (max-width: 750px) {
 
     .ceremony-section {
-        padding: 70px 20px;
+
+        padding: 65px 15px 75px;
+
     }
 
-    .ceremony-content {
+
+    .ceremony-heading {
+
+        font-size: 45px;
+
+    }
+
+
+    .ceremony-gold-line {
+
+        margin-bottom: 30px;
+
+    }
+
+
+    .ceremony-card {
+
+        padding: 55px 25px;
+
+        min-height: auto;
+
+    }
+
+
+    .ceremony-card-content {
+
         grid-template-columns: 1fr;
+
         gap: 45px;
+
+        min-height: auto;
+
     }
 
-    .ceremony-title {
-        font-size: 48px;
+
+    .ceremony-details {
+
+        padding: 10px;
+
     }
+
+
+    .ceremony-name {
+
+        font-size: 52px;
+
+    }
+
 
     .ceremony-date {
-        font-size: 24px;
+
+        font-size: 25px;
+
     }
 
-    .photo-frame {
-        max-width: 320px;
-        height: 430px;
+
+    .ceremony-photo-frame {
+
+        width: 280px;
+
+        height: 370px;
+
+    }
+
+
+    .leaf-decoration {
+
+        font-size: 40px;
+
     }
 
 }
@@ -512,62 +819,89 @@
 
 <section class="ceremony-section">
 
-    <div class="ceremony-content">
+    <!-- Título fuera del marco -->
+    <h2 class="ceremony-heading">
+        Ceremonia
+    </h2>
 
-        <div class="ceremony-info">
+    <div class="ceremony-gold-line"></div>
 
-             <h2 class="ceremony-title">
-                Ceremonia
-            </h2>
 
-            <div class="gold-line"></div>
+    <!-- MARCO EXTERIOR DE LA INVITACIÓN -->
+    <div class="ceremony-card">
 
-        <div class="event-icon">
-            ♡
-        </div>
+        <!-- Hojas decorativas -->
+        <div class="leaf-decoration leaf-top-left">❧</div>
+        <div class="leaf-decoration leaf-top-right">❧</div>
+        <div class="leaf-decoration leaf-bottom-left">❧</div>
+        <div class="leaf-decoration leaf-bottom-right">❧</div>
 
-            <div class="ceremony-small-title">
-                NUESTRA BODA
-            </div>
+
+        <div class="ceremony-card-content">
+
+
+            <!-- =========================
+                 INFORMACIÓN
+            ========================= -->
 
             <div class="ceremony-details">
 
+                <div class="ceremony-heart">
+                    ♡
+                </div>
+
+                <div class="ceremony-name">
+                    Nuestra boda
+                </div>
+
+                <div class="ceremony-small-line"></div>
+
+
                 <div class="ceremony-date">
-                    07.01.27
+                    07 de enero de 2027
                 </div>
 
                 <div class="ceremony-time">
                     3:00 p. m.
                 </div>
 
+
                 <div class="ceremony-location">
-                    Sala de Eventos Laureal<br>
+
+                    <strong>Sala de Eventos Laureal</strong><br>
                     San Roque de Barva
+
+                </div>
+
+
+                <a
+                    class="ceremony-location-button"
+                    href="https://www.google.com/maps/search/?api=1&query=Salon+Los+Laureles+San+Roque+de+Barva"
+                    target="_blank">
+
+                    VER UBICACIÓN
+
+                </a>
+
+            </div>
+
+
+            <!-- =========================
+                 FOTO
+            ========================= -->
+
+            <div class="ceremony-photo-area">
+
+                <div class="ceremony-photo-frame">
+
+                    <img
+                        src="Foto1.png"
+                        alt="Nuestra boda">
+
                 </div>
 
             </div>
 
-            <a
-                class="ceremony-button"
-                href="https://www.google.com/maps/search/?api=1&query=Salon+Los+Laureles+San+Roque+de+Barva"
-                target="_blank">
-
-                VER UBICACIÓN
-
-            </a>
-
-        </div>
-
-
-        <div class="ceremony-photo">
-
-            <div class="photo-frame">
-
-                <img
-                    src="Foto1.png"
-                    alt="Nuestra boda">
-
-            </div>
 
         </div>
 

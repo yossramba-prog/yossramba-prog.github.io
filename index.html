@@ -188,68 +188,162 @@
             color: #f7f3e9;
         }
 
-        /* =========================
-           CEREMONIA
-        ========================= */
+      /* =========================
+   CEREMONIA
+========================= */
 
-        .event-box {
-            max-width: 600px;
-            margin: 30px auto 0;
-            padding: 45px 25px;
-            border: 1px solid #c7b98f;
-            background: rgba(255,255,255,0.35);
-        }
+.ceremony-section {
+    padding: 90px 30px;
+    background: #f5f0e6;
+}
 
-        .event-icon {
-            font-size: 35px;
-            margin-bottom: 20px;
-        }
+.ceremony-content {
+    max-width: 1050px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 0.9fr;
+    align-items: center;
+    gap: 70px;
+}
 
-        .event-name {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 32px;
-            margin-bottom: 15px;
-        }
+/* Información */
 
-        .event-info {
-            line-height: 2;
-            font-size: 14px;
-        }
+.ceremony-info {
+    text-align: center;
+    padding: 20px;
+}
 
-        .button {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 14px 28px;
-            border: 1px solid #b2965b;
-            color: #27483d;
-            text-decoration: none;
-            font-size: 11px;
-            letter-spacing: 2px;
-            transition: 0.3s;
-        }
+.ceremony-small-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    letter-spacing: 4px;
+    color: #9c8450;
+    margin-bottom: 15px;
+}
 
-        .button:hover {
-            background: #27483d;
-            color: white;
-        }
+.ceremony-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 58px;
+    font-weight: 400;
+    color: #3f493c;
+    margin: 0 0 18px;
+}
 
-        /* =========================
-           GALERÍA
-        ========================= */
+.ceremony-info .gold-line {
+    width: 55px;
+    height: 1px;
+    background: #c5a45d;
+    margin: 0 auto 30px;
+}
 
-        .gallery {
-            max-width: 900px;
-            margin: 40px auto 0;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-        }
+.ceremony-details {
+    font-family: 'Cormorant Garamond', serif;
+    color: #4a4a43;
+}
 
-        .gallery img {
-            width: 100%;
-            height: 260px;
-            object-fit: cover;
-        }
+.ceremony-date {
+    font-size: 27px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.ceremony-time {
+    font-size: 21px;
+    margin-bottom: 25px;
+}
+
+.ceremony-location {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    line-height: 1.8;
+    letter-spacing: 1px;
+    color: #66645c;
+}
+
+/* Botón */
+
+.ceremony-button {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 13px 28px;
+    border: 1px solid #b49a60;
+    color: #806b3f;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+}
+
+.ceremony-button:hover {
+    background: #b49a60;
+    color: #fff;
+}
+
+
+/* =========================
+   FOTO DE CEREMONIA
+========================= */
+
+.ceremony-photo {
+    display: flex;
+    justify-content: center;
+}
+
+.photo-frame {
+    width: 100%;
+    max-width: 390px;
+    height: 500px;
+    overflow: hidden;
+
+    border: 1px solid #c5a45d;
+
+    /* forma elegante tipo arco */
+    border-radius: 200px 200px 0 0;
+
+    padding: 8px;
+}
+
+.photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    border-radius: 190px 190px 0 0;
+
+    display: block;
+}
+
+
+/* =========================
+   MÓVIL
+========================= */
+
+@media (max-width: 700px) {
+
+    .ceremony-section {
+        padding: 70px 20px;
+    }
+
+    .ceremony-content {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .ceremony-title {
+        font-size: 48px;
+    }
+
+    .ceremony-date {
+        font-size: 24px;
+    }
+
+    .photo-frame {
+        max-width: 320px;
+        height: 430px;
+    }
+
+}
 
 
         /* =========================
@@ -416,53 +510,62 @@
      CEREMONIA
 ========================= -->
 
-     <section>
+<section class="ceremony-section">
 
-    <h2 class="section-title">
-        Ceremonia
-    </h2>
+    <div class="ceremony-content">
 
-    <div class="gold-line"></div>
+        <div class="ceremony-info">
 
-    <div class="event-box">
+            <div class="ceremony-small-title">
+                NUESTRA BODA
+            </div>
 
-        <div class="event-icon">
-            ♡
+            <h2 class="ceremony-title">
+                Ceremonia
+            </h2>
+
+            <div class="gold-line"></div>
+
+            <div class="ceremony-details">
+
+                <div class="ceremony-date">
+                    07.01.27
+                </div>
+
+                <div class="ceremony-time">
+                    3:00 p. m.
+                </div>
+
+                <div class="ceremony-location">
+                    Sala de Eventos Laureal<br>
+                    San Roque de Barva
+                </div>
+
+            </div>
+
+            <a
+                class="ceremony-button"
+                href="https://www.google.com/maps/search/?api=1&query=Salon+Los+Laureles+San+Roque+de+Barva"
+                target="_blank">
+
+                VER UBICACIÓN
+
+            </a>
+
         </div>
 
-        <div class="event-name">
-            Nuestra boda
-        </div>
 
-        <div class="event-info">
+        <div class="ceremony-photo">
 
-            <strong>07 de enero de 2027</strong><br>
+            <div class="photo-frame">
 
-            3:00 p. m.<br><br>
+                <img
+                    src="Foto1.png"
+                    alt="Nuestra boda">
 
-            Sala De Eventos Laureal <br>
-
-            San Roque de Barva
+            </div>
 
         </div>
-
-        <a
-            class="button"
-            href="https://www.google.com/maps/search/?api=1&query=Salon+Los+Laureles+San+Roque+de+Barva"
-            target="_blank">
-
-            VER UBICACIÓN
-
-        </a>
-
-    </div>
-         
-      <div class="gallery">
-
-       <img src="foto1.png" alt="Nuestro momento">
-<img src="foto2.png" alt="Nuestro momento">
-<img src="foto3.png" alt="Nuestro momento">
-<img src="foto4.png" alt="Nuestro momento">
 
     </div>
 

@@ -736,10 +736,97 @@
 
     </style>
 </head>
+/* =========================
+   REPRODUCTOR DE MÚSICA
+========================= */
 
+.music-button {
+    position: fixed;
+
+    bottom: 25px;
+    right: 25px;
+
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 11px 17px;
+
+    background: rgba(248, 244, 235, 0.95);
+
+    border: 1px solid #c5a45d;
+
+    color: #806b3f;
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 1.5px;
+
+    cursor: pointer;
+
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+
+    transition: all 0.3s ease;
+}
+
+.music-button:hover {
+    background: #c5a45d;
+    color: white;
+}
+
+#musicIcon {
+    font-size: 10px;
+}
+
+#musicText {
+    white-space: nowrap;
+}
+
+
+/* En celular */
+
+@media (max-width: 600px) {
+
+    .music-button {
+
+        bottom: 18px;
+        right: 18px;
+
+        padding: 10px 13px;
+
+    }
+
+    #musicText {
+
+        font-size: 9px;
+
+    }
+
+}
 
 <body>
+    
+<!-- =========================
+     MÚSICA
+========================= -->
 
+<audio id="weddingMusic" loop>
+    <source src="cancion.mp3" type="audio/mpeg">
+</audio>
+
+<button id="musicButton" class="music-button" aria-label="Reproducir música">
+
+    <span id="musicIcon">▶</span>
+
+    <span id="musicText">
+        Nuestra canción
+    </span>
+
+</button>
 
 <!-- =========================
      PORTADA
@@ -1213,5 +1300,38 @@ setInterval(updateCountdown, 1000);
 
 </script>
 
+    <script>
+
+/* =========================
+   MÚSICA DE LA INVITACIÓN
+========================= */
+
+const music = document.getElementById("weddingMusic");
+const musicButton = document.getElementById("musicButton");
+const musicIcon = document.getElementById("musicIcon");
+const musicText = document.getElementById("musicText");
+
+
+musicButton.addEventListener("click", function () {
+
+    if (music.paused) {
+
+        music.play();
+
+        musicIcon.innerHTML = "❚❚";
+        musicText.innerHTML = "Nuestra canción";
+
+    } else {
+
+        music.pause();
+
+        musicIcon.innerHTML = "▶";
+        musicText.innerHTML = "Nuestra canción";
+
+    }
+
+});
+
+</script>
 </body>
 </html>

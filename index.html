@@ -1302,6 +1302,7 @@ setInterval(updateCountdown, 1000);
 
     <script>
 
+<script>
 /* =========================
    MÚSICA DE LA INVITACIÓN
 ========================= */
@@ -1311,27 +1312,42 @@ const musicButton = document.getElementById("musicButton");
 const musicIcon = document.getElementById("musicIcon");
 const musicText = document.getElementById("musicText");
 
+musicButton.addEventListener("click", async function () {
 
-musicButton.addEventListener("click", function () {
+    try {
 
-    if (music.paused) {
+        if (music.paused) {
 
-        music.play();
+            await music.play();
 
-        musicIcon.innerHTML = "❚❚";
-        musicText.innerHTML = "Nuestra canción";
+            musicIcon.innerHTML = "❚❚";
+            musicText.innerHTML = "Pausar canción";
 
-    } else {
+        } else {
 
-        music.pause();
+            music.pause();
 
-        musicIcon.innerHTML = "▶";
-        musicText.innerHTML = "Nuestra canción";
+            musicIcon.innerHTML = "▶";
+            musicText.innerHTML = "Nuestra canción";
+
+        }
+
+    } catch (error) {
+
+        console.error("No se pudo reproducir la canción:", error);
+
+        musicText.innerHTML = "No se pudo reproducir";
 
     }
 
 });
 
+music.addEventListener("ended", function () {
+    musicIcon.innerHTML = "▶";
+    musicText.innerHTML = "Nuestra canción";
+});
+        
+</script>
 </script>
 </body>
 </html>
